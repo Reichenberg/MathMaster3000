@@ -96,6 +96,10 @@ body {
     gap: 6px;
     margin-bottom: 12px;
     margin-top: 32px;
+    @media only screen and (min-width : 1025px) {
+        gap: 12px;
+
+    }
 }
 
 .button-container {
@@ -110,6 +114,13 @@ body {
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 6px;
     justify-items: center;
+
+    @media only screen and (min-width : 1025px) {
+        grid-template-columns: 128px 128px 128px;
+        gap: 12px;
+
+    }
+
 }
 
 .side-actions {
