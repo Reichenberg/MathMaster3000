@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="styles/global.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap"
+        rel="stylesheet">
+        <script src="./lib/calculator.model.js" defer></script>
+    <script src="./lib/calculator.controller.js" defer></script>
+</head>
+
+<body>
+    <div class="display" data-display>
+       <div data-output class="value"></div>
+       <div class="formula-container"><div class="formula" data-formula></div><span class="cursor formula">|</span></div>
+
+
+    </div>
+    <div class="button-container">
+        <h3 class="header">calculator</h3>
+        <div class="top-actions"><button class="button-secondary" data-clear><span>C</span></button>
+            <button class="button-secondary" data-operation><span>%</span></button>
+            <button class="button-secondary" data-operation><span>÷</span></button>
+            <button class="button-secondary" data-operation><span>*</span></button>
+        </div>
+        <section class="calculator-bottom">
+
+
+            <div class="main-actions">
+                <button class="button" data-val><span>7</span></button>
+                <button class="button" data-val><span>8</span></button>
+                <button class="button" data-val><span>9</span></button>
+                <button class="button" data-val><span>4</span></button>
+
+                <button class="button" data-val><span>5</span></button>
+                <button class="button" data-val><span>6</span></button>
+                <button class="button" data-val><span>1</span></button>
+                <button class="button" data-val><span>2</span></button>
+
+                <button class="button" data-val><span>3</button>
+                <button class="button" data-val><span>.</span></button>
+                <button class="button" data-val><span>0</span></button>
+                <button class="button" data-backspace><span><img src="assets/icons/Backspace.svg" /></span></button>
+
+            </div>
+            <div class="side-actions">
+                <button class="button-secondary" data-operation><span>-</span></button>
+                <button class="button-secondary" data-operation><span>+</span></button>
+                <button class="button-tertiary" data-equal><span>=</span></button>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

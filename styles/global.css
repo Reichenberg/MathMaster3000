@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', Roboto, sans-serif;
+}
+
+:root {
+    --roboto-mono: "Roboto Mono", monospace;
+    --roboto-slab: "Roboto Slab", serif;
+    --white: #f5f5f5;
+    --black: #1c1c1c;
+    --primary1: #ffe5d9;
+    --primary2: #ffc0a3;
+    --primary3: #ff9b6d;
+    --surface: #FFE5D9;
+    --secondary: #D8E2DC;
+    --secondary2: #C4D1C9;
+    --secondary3: #5E6761;
+    --tertiary: #FFCAD4;
+    --display: #F9F2EC;
+    --border-radius1: 50px;
+    --border-radius2: 16px;
+    --morphic-shadow: 1px -1px 3px 0 rgba(174 186 179 / 0.90), -1px 1px 2px 0 rgba(218 232 223 / 0.90), 1px 1px 2px 0 rgba(174 186 179 / 0.20), -1px -1px 2px 0 rgba(174 186 179 / 0.20), inset -1px 1px 2px 0 rgba(174 186 179 / 0.50), inset 1px -1px 2px 0 rgba(218 232 223 / 0.30);
+    --morphic-shadow--pressed: inset 1px -1px 3px 0 rgba(174 186 179 / 0.90), inset -1px 1px 2px 0 rgba(218 232 223 / 0.90), inset 1px 1px 2px 0 rgba(174 186 179 / 0.20), inset -1px -1px 2px 0 rgba(174 186 179 / 0.20), -1px 1px 2px 0 rgba(174 186 179 / 0.50), 1px -1px 2px 0 rgba(218 232 223 / 0.30);
+    --morphic-negative: inset 4px -4px 10px 0 rgba(232 225 219 / 0.90), inset -4px 4px 8px 0 rgba(255 255 253 / 0.90), inset 4px 4px 8px 0 rgba(232 225 219 / 0.20), inset -4px -4px 8px 0 rgba(232 225 219 / 0.20), -1px 1px 2px 0 rgba(232 225 219 / 0.50), 1px -1px 2px 0 rgba(255 255 253 / 0.30);
+    --morphicred: 1px -1px 3px 0 rgba(227 180 189 / 0.90), -1px 1px 2px 0 rgba(255 224 235 / 0.90), 1px 1px 2px 0 rgba(227 180 189 / 0.20), -1px -1px 2px 0 rgba(227 180 189 / 0.20), inset -1px 1px 2px 0 rgba(227 180 189 / 0.50), inset 1px -1px 2px 0 rgba(255 224 235 / 0.30);
+    --morphiclight: 1px -1px 3px 0 rgba(192 201 196 / 0.90), -1px 1px 2px 0 rgba(240 251 244 / 0.90), 1px 1px 2px 0 rgba(192 201 196 / 0.20), -1px -1px 2px 0 rgba(192 201 196 / 0.20), inset -1px 1px 2px 0 rgba(192 201 196 / 0.50), inset 1px -1px 2px 0 rgba(240 251 244 / 0.30);
+
+}
+
+
+body {
+    background-color: var(--surface);
+    height: 100dvh;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
+    .display {
+        background-color: var(--display);
+        box-shadow: var(--morphic-negative);
+        display: flex;
+        gap: 6px;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 12px;
+        overflow: hidden;
+        .formula-container{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            margin-right: 16px;
+            .formula {
+                bottom: 0;
+                right: 0;
+                text-align: right;
+                color: var(--primary2);
+                font-size: 3rem;
+                align-self: end;
+                text-wrap: nowrap;
+            }
+
+            .cursor{
+                opacity: 0;
+                animation: blink 1s infinite;
+          }
+
+        }
+
+    }
+
+
+    .value {
+        font-family: var(--roboto-mono);
+        margin-right: 16px;
+        text-align: right;
+        font-weight: bold;
+        color: var(--primary3);
+        align-self: end;
+            text-wrap: nowrap;
+    }
+}
+
+.calculator-bottom {
+    display: grid;
+    grid-template-columns: 264px 1fr;
+    gap: 6px;
+}
+
+.top-actions {
+    height: 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 12px;
+    margin-top: 32px;
+}
+
+.button-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+}
+
+.main-actions {
+    display: grid;
+    grid-template-columns: 84px 84px 84px;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 6px;
+    justify-items: center;
+}
+
+.side-actions {
+    display: grid;
+    width: 84px;
+    gap: 6px;
+    grid-template-rows: 84px 84px 1fr;
+}
+
+@keyframes blink {
+    0%    { opacity: 0; }
+    25% {opacity: 1;}
+    75% {opacity: 1;}
+    100% {opacity: 0;}
+
+  }
+
+
+/* COMPONENT STYLES */
+.header {
+    margin-top: 4px;
+    font-weight: 200;
+    color: #E3C1B2;
+    font-size: 24px;
+}
+
+.button,
+.button-secondary,
+.button-tertiary {
+    border: none;
+    font-family: var(--roboto-mono);
+    font-size: 2rem;
+    color: var(--secondary3);
+
+}
+
+.button {
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    height: 84px;
+    width: 100%;
+    box-shadow: var(--morphic-shadow);
+    background-color: var(--secondary2);
+    border-radius: var(--border-radius1);
+    transition: box-shadow .3s ease-out;
+
+}
+
+
+.button-secondary {
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    background-color: var(--secondary);
+    border-radius: var(--border-radius2);
+    transition: box-shadow .3s ease-out;
+    box-shadow: var(--morphiclight);
+
+}
+
+.button-tertiary {
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    background-color: var(--secondary);
+    border-radius: var(--border-radius2);
+    transition: box-shadow .3s ease-out;
+    box-shadow: var(--morphiclight);
+}
+
+
+
+
+.button:active,
+.button-secondary:active,
+.button-tertiary:active {
+    box-shadow: var(--morphic-shadow--pressed);
+
+    span {
+        display: block;
+        transform: translate(-2px, 2px);
+    }
+}
+
+
+
+
+/* Remove user agent defaults */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    font-family: inherit;
+    /* 1 */
+    font-size: 100%;
+    /* 1 */
+    line-height: 1.15;
+    /* 1 */
+    margin: 0;
+    /* 2 */
+}
+
+/**
+  * Show the overflow in IE.
+  * 1. Show the overflow in Edge.
+  */
+
+button,
+input {
+    /* 1 */
+    overflow: visible;
+}
+
+/**
+  * Remove the inheritance of text transform in Edge, Firefox, and IE.
+  * 1. Remove the inheritance of text transform in Firefox.
+  */
+
+button,
+select {
+    /* 1 */
+    text-transform: none;
+}
+
+/**
+  * Correct the inability to style clickable types in iOS and Safari.
+  */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
