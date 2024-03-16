@@ -52,6 +52,7 @@ body {
             justify-content: flex-end;
             margin-right: 16px;
             .formula {
+                font-family: var(--roboto-mono);
                 bottom: 0;
                 right: 0;
                 text-align: right;
