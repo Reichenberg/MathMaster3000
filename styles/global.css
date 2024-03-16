@@ -83,8 +83,8 @@ body {
 }
 
 .calculator-bottom {
-    display: grid;
-    grid-template-columns: 264px 1fr;
+    display: flex;
+    justify-content: space-between;
     gap: 6px;
 }
 
@@ -129,10 +129,11 @@ body {
 
 /* COMPONENT STYLES */
 .header {
+    font-family: var(--roboto-mono);
     margin-top: 4px;
     font-weight: 200;
     color: #E3C1B2;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .button,
