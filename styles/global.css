@@ -36,6 +36,7 @@ body {
     width: 100%;
     display: grid;
     grid-template-rows: 1fr 1fr;
+    overflow: hidden;
 
     .display {
         background-color: var(--display);
@@ -87,6 +88,7 @@ body {
     display: flex;
     justify-content: space-between;
     gap: 6px;
+    margin-bottom: 16px;
 }
 
 .top-actions {
